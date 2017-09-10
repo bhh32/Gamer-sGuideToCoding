@@ -23,28 +23,27 @@
         var randomNumber = Math.floor((Math.random() * 10) + 1);
         var yourGuess = document.getElementById("guess");
         var tries = 3;
-        while (true)
+
+        if(yourGuess.value == randomNumber)
         {
-          if(yourGuess.value == randomNumber)
-          {
-            document.getElementById("prompt").innerHTML = "That is correct!";
-          }
-          else if(yourGuess.value < randomNumber && tries < 0)
-          {
-            document.getElementById("prompt").innerHTML = "Higher!";
-            tries--;
-          }
-          else if(yourGuess.value > randomNumber && tries > 0)
-          {
-            document.getElementById("prompt").innerHTML = "Lower!";
-            tries--;
-          }
-          else
-          {
-              document.getElementById("prompt").innerHTML = "Sorry, you ran out of tries!";
-              break;
-          }
+          document.getElementById("prompt").innerHTML = "That is correct!";
         }
+        else if(yourGuess.value < randomNumber && tries < 0)
+        {
+          document.getElementById("prompt").innerHTML = "Higher!";
+          tries--;
+        }
+        else if(yourGuess.value > randomNumber && tries > 0)
+        {
+          document.getElementById("prompt").innerHTML = "Lower!";
+          tries--;
+        }
+        else
+        {
+          document.getElementById("prompt").innerHTML = "Sorry, you ran out of tries!";
+        }
+
+        console.log(tries);
       }
     </script>
 
