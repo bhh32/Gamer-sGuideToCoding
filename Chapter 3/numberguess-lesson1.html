@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Number Guess - Lesson 1</title>
+    <meta name="author" content="The Gamer's Guide to Coding" />
+    <meta name="dcterms.rights" content="..." />
+  </head>
+
+  <!-- Start of visible page -->
+  <body>
+
+    <p id="prompt"> I'm thinking of a number from 1 to 10. Can you guess it?</p>
+    <input id="guess" type="text" value="" />
+    <input type="button" value="Guess" onclick="numberGuess();" />
+
+    <!-- JavaScript code placed at end of <body> eleent -->
+    <script>
+
+      function numberGuess()
+      {
+        var randomNumber = Math.floor((Math.random() * 10) + 1);
+        var yourGuess = document.getElementById("guess");
+        var tries = 3;
+        while (true)
+        {
+          if(yourGuess.value == randomNumber)
+          {
+            document.getElementById("prompt").innerHTML = "That is correct!";
+          }
+          else if(yourGuess.value < randomNumber && tries < 0)
+          {
+            document.getElementById("prompt").innerHTML = "Higher!";
+            tries--;
+          }
+          else if(yourGuess.value > randomNumber && tries > 0)
+          {
+            document.getElementById("prompt").innerHTML = "Lower!";
+            tries--;
+          }
+          else
+          {
+              document.getElementById("prompt").innerHTML = "Sorry, you ran out of tries!";
+              break;
+          }
+        }
+      }
+    </script>
+
+  </body>
+</html>
